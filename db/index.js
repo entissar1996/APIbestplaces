@@ -1,11 +1,13 @@
+require('dotenv').config()
 const mongoose = require('mongoose');
 const config=require('../config/db_connect');
 
-const DB_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/bestplace';
+const DB_URI = process.env.MONG_DB_CONNECTION_STRING || 'mongodb://localhost:27017/bestplace';
+
 
 function connect() {
   return new Promise((resolve, reject) => {
-
+  console.log(process.env.MONG_DB_CONNECTION_STRING)
     if (process.env.NODE_ENV === 'test') {
       const Mockgoose = require('mockgoose').Mockgoose;
       const mockgoose = new Mockgoose(mongoose);
