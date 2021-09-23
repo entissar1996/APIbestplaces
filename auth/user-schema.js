@@ -15,7 +15,7 @@ const UserSchema = new Schema({
     fullname: {
         type: String,
         trim: true,
-        required: [true, 'prenom est obligatoire!!'],
+        //required: [true, 'fullname est obligatoire!!'],
     },
     email: {
         type: String,
