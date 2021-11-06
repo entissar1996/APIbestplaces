@@ -1,15 +1,26 @@
 const router=require('express').Router();
 const User = require('./user-schema');
 const helpers = require('./user-validation');
+const multer = require('multer');
 const {
   check,
   validationResult
 } = require('express-validator');
 const userService = require('./user.service')(User);
 
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
+  }
+});
+var upload = multer({ storage: storage });
 // POST /register
-router.post('/register', [check('email').isEmail()], async function (req, res, next) {
-    const errors = validationResult(req);
+router.post('/register',upload.single('avatar'), [check('email').isEmail()], async function (req, res, next) {
+  console.log(req.file.path);
+  const errors = validationResult(req);
     if (!errors.isEmpty()) {
       res.status(422).json({
         status: "fail",
@@ -17,9 +28,12 @@ router.post('/register', [check('email').isEmail()], async function (req, res, n
         payload: null
       });
     } else {
-      let { 
-        ...user
-      } = req.body
+      const user=new User({
+        fullname:req.body.fullname,
+        email:req.body.email,
+        password:req.body.password,
+        avatar:req.file.path
+      })
       try {
         let response = await userService.register(user);
         res.json(response);
@@ -94,13 +108,13 @@ router.get('/user/:id', async function (req, res,next) {
 // PUT /update/:id
 router.put('/update/:id', helpers.validateUser, async function (req, res,next) {
   if (
-    !req.body.hasOwnProperty('nom') &&
-    !req.body.hasOwnProperty('telephone') &&
-    !req.body.hasOwnProperty('adresse') &&
-    !req.body.hasOwnProperty('ville')) {
+    !req.body.hasOwnProperty('fullname') &&
+
+    !req.body.hasOwnProperty('avatar') &&
+    !req.body.hasOwnProperty('phone')) {
     res.status(422).json({
       status: "error",
-      message: 'il faut taper nom ,ville,telephone,adresse',
+      message: 'You Should send fullusername and/or phone and/or city',
       payload: null
     });
   } else {

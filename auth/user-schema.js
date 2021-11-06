@@ -46,11 +46,9 @@ const UserSchema = new Schema({
         default: 'GUEST'
     },
     avatar: {
-        type: String,
-        required: true,
-        default: 'avatardefault.png'
+        type: String
     },
-   
+
 
 }, {
     timestamps: true

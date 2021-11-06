@@ -19,6 +19,41 @@ app.use(express.urlencoded({
 
 // api endpoint
 app.use('/users', usersRouter);
+// images upload
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
+  }
+});
+var upload = multer({ storage: storage });
+app.use(express.static(__dirname + 'public'));
+app.use('/uploads', express.static('uploads'));
+
+app.post('/profile-upload-single', upload.single('profile-file'), function (req, res, next) {
+
+  // req.file is the `profile-file` file
+  // req.body will hold the text fields, if there were any
+  console.log(JSON.stringify(req.file))
+  var response = req.file.path
+
+  return res.send(response)
+})
+
+/* app.post('/profile-upload-multiple', upload.array('profile-files', 12), function (req, res, next) {
+    // req.files is array of `profile-files` files
+    // req.body will contain the text fields, if there were any
+    console.log(JSON.stringify(req.file))
+
+    for(var i=0;i<req.files.length;i++){
+       var response += req.files[i].path;
+    }
+
+    return res.send(response)
+}) */
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -35,38 +70,5 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.json({message: '500 Server error :('});
 });
-// images upload
-var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, './uploads')
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname)
-  }
-});
-var upload = multer({ storage: storage });
-app.use(express.static(__dirname + '/public'));
-app.use('/uploads', express.static('uploads'));
-
-app.post('/profile-upload-single', upload.single('profile-file'), function (req, res, next) {
-  // req.file is the `profile-file` file
-  // req.body will hold the text fields, if there were any
-  console.log(JSON.stringify(req.file))
-  var response = req.file.path;
-
-  return res.send(response)
-});
-
-/* app.post('/profile-upload-multiple', upload.array('profile-files', 12), function (req, res, next) {
-    // req.files is array of `profile-files` files
-    // req.body will contain the text fields, if there were any
-    console.log(JSON.stringify(req.file))
-
-    for(var i=0;i<req.files.length;i++){
-       var response += req.files[i].path;
-    }
-
-    return res.send(response)
-}) */
 
 module.exports = app;
