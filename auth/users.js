@@ -123,7 +123,7 @@ router.put('/update/:id', async function (req, res,next) {
     }
 
   }
-});
+);
 
 
 
