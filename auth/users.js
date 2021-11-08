@@ -107,16 +107,7 @@ router.get('/user/:id', async function (req, res,next) {
 // Upadate User Info
 // PUT /update/:id
 router.put('/update/:id', async function (req, res,next) {
-  if (
-    !req.body.hasOwnProperty('fullname') &&
 
-    !req.body.hasOwnProperty('phone')) {
-    res.status(422).json({
-      status: "error",
-      message: 'You Should send fullusername and/or phone and/or city',
-      payload: null
-    });
-  } else {
     let userId = req.params.id;
     let user = {
       ...req.body
@@ -138,7 +129,7 @@ router.put('/update/:id', async function (req, res,next) {
 
 // Upadate User Role " ADMIN | USER "
 // PUT /update/role/:id
-router.put('/update/role/:id', helpers.validateUser, async function (req, res,next) {
+router.put('/update/role/:id',  async function (req, res,next) {
   let id = req.params.id;
   let role;
   if(!req.body.hasOwnProperty('new_role')){
