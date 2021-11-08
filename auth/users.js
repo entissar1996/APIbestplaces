@@ -106,11 +106,10 @@ router.get('/user/:id', async function (req, res,next) {
 
 // Upadate User Info
 // PUT /update/:id
-router.put('/update/:id', helpers.validateUser, async function (req, res,next) {
+router.put('/update/:id', async function (req, res,next) {
   if (
     !req.body.hasOwnProperty('fullname') &&
 
-    !req.body.hasOwnProperty('avatar') &&
     !req.body.hasOwnProperty('phone')) {
     res.status(422).json({
       status: "error",
