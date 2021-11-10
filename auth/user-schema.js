@@ -47,7 +47,7 @@ const UserSchema = new Schema({
     },
     avatar: {
         type: String,
-        default: 'b.jpg'
+        default: 'default.png'
     },
 
 
