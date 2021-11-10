@@ -1,13 +1,13 @@
 const router=require('express').Router();
 const User = require('./user-schema');
 const helpers = require('./user-validation');
-/*const multer = require('multer');
+/*const multer = require('multer');*/
 const {
   check,
   validationResult
 } = require('express-validator');
 const userService = require('./user.service')(User);
-
+/*
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'uploads')
@@ -47,7 +47,7 @@ router.post('/register',upload.single('avatar'), [check('email').isEmail()], asy
 
 );
 */
-router.post('/register', [check('email').isEmail()], async function (req, res, next) {
+router.post('/register', [check('email').isEmail()], async function (req,res, next) {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     res.status(422).json({
