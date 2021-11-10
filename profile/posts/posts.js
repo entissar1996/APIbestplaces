@@ -8,7 +8,7 @@ const postsSchema= mongoose.Schema(
         }
     },
     {
-      statut:{
+      continue:{
           type: String,
           required: true
       }

@@ -46,7 +46,8 @@ const UserSchema = new Schema({
         default: 'GUEST'
     },
     avatar: {
-        type: String
+        type: String,
+        default: 'b.jpg'
     },
 
 

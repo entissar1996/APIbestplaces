@@ -18,7 +18,7 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage: storage });
 // POST /register
-router.post('/register',upload.single('avatar'), [check('email').isEmail()], async function (req, res, next) {
+/*router.post('/register',upload.single('avatar'), [check('email').isEmail()], async function (req, res, next) {
   console.log(req.file.path);
   const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -32,7 +32,7 @@ router.post('/register',upload.single('avatar'), [check('email').isEmail()], asy
         fullname:req.body.fullname,
         email:req.body.email,
         password:req.body.password,
-        avatar:req.file.path
+       avatar:req.file.path
       })
       try {
         let response = await userService.register(user);
@@ -46,7 +46,31 @@ router.post('/register',upload.single('avatar'), [check('email').isEmail()], asy
   }
 
 );
+*/
+router.post('/register', [check('email').isEmail()], async function (req, res, next) {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    res.status(422).json({
+      status: "fail",
+      message: errors.array(),
+      payload: null
+    });
+  } else {
+    let {
+      ...user
+    } = req.body
+    try {
+      let response = await userService.register(user);
+      res.json(response);
+    } catch (error) {
+      next(error)
+      console.log(error)
+    }
 
+  }
+}
+
+);
 // @ts-check
 // POST /authenticate
 router.post('/authenticate', [check('email').isEmail()], async function (req, res, next) {
@@ -73,7 +97,7 @@ router.post('/authenticate', [check('email').isEmail()], async function (req, re
 
 // @ts-check
 // GET / get All users
-router.get('/',  async function (req, res, next) {
+router.get('/', async function (req, res, next) {
   try {
     let response = await userService.getAllUsers();
     if (response) {
