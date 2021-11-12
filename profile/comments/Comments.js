@@ -14,7 +14,11 @@ const CommentsSchema = new Schema({
     commentDate: {
         type: Date,
         default: Date.now
-    }
+    },
+    idpost:{
+      type: Schema.Types.ObjectId,
+      ref: 'Post'
+  }
 
 });
 

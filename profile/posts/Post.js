@@ -32,7 +32,12 @@ const postSchema = new Schema({
       type: Number,
       default: 0
   },
+  Comments:[{
+    type: Schema.Types.ObjectId,
+    ref: 'Comments'
+}]
+
 
 });
 
-module.exports = mongoose.model('post', postSchema);
+module.exports = mongoose.model('Post', postSchema);

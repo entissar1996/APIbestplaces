@@ -1,12 +1,13 @@
 const Comments= require('../comments/Comments');
 const User= require('../../auth/user-schema');
+const Post= require('../posts/Post');
 
 async function addComment(comment) {
 
     try {
         let NewComment = await Comments.create(comment);
 
-        await addUserToComment(NewComment);
+        await addcommentToPost(NewComment);
 
         return ({
                 status: "success",
@@ -25,10 +26,11 @@ async function addComment(comment) {
 
 }
 
-async function addUserToComment(comment)
+
+async function addcommentToPost(comment)
 {
-    await User.updateMany(
-        { '_id':comment.user },
+    await Post.updateMany(
+        { '_id':comment.idpost },
         { $push: { comments: comment._id } }
         );
 }
