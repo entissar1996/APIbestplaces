@@ -135,6 +135,7 @@ async function DelateUserToPost(post)
         );
 }
 
+//async function uploadPhoto()
 module.exports =() => {
     return (
         {

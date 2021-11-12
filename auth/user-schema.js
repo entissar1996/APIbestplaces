@@ -50,7 +50,10 @@ const UserSchema = new Schema({
         default: 'default.png'
     },
 
-
+    posts :[{
+      type: mongoose.Types.ObjectId,
+      ref: 'Post'
+  }],
 }, {
     timestamps: true
 });
