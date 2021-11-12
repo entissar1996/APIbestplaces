@@ -35,7 +35,9 @@ async function addUserToPost(post)
 
 async function getAllPosts() {
     try {
-        let listePosts = await Post.find().populate("user");
+        let listePosts = await Post.find({status: 'public'});//.populate('user').populate('comments.commentUser');
+
+
         return ({
             status: "success",
             message: "All Posts",
@@ -45,7 +47,7 @@ async function getAllPosts() {
     } catch (error) {
         return ({
             status: "error",
-            message: "Get All Postns Fail",
+            message: "Get All Posts Fail",
             payload: null
         });
     }

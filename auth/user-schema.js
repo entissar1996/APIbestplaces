@@ -42,8 +42,8 @@ const UserSchema = new Schema({
     },
     role: {
         type: String,
-        required: true,
-        default: 'GUEST'
+        required: true
+       // default: 'GUEST'
     },
     avatar: {
         type: String,
