@@ -24,6 +24,7 @@ async function addPost(post) {
     }
 
 }
+
 async function addUserToPost(post)
 {
     await User.updateMany(

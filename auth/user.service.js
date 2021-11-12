@@ -59,7 +59,7 @@ const authenticate = (User) => async (email, password) => {
 
 const getAllUser = (User) => async () => {
   try {
-    let users = await User.find({}).populate("customer");
+    let users = await User.find();
     if (users) {
       return {
         status: "success",

@@ -9,6 +9,7 @@ const multer = require('multer');
 const usersRouter = require('./auth/users');
 const avatarRouter =require('./auth/uploadsavatar');
 const postRouter = require('./profile/posts/postroute');
+const commentsRouter = require('./profile/comments/commentsroute');
 
 
 // setting up express app
@@ -40,6 +41,8 @@ app.use('/uploads', express.static('uploads'));*/
 app.use('/uploadsavatar', express.static(path.join(__dirname, 'uploads')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/posts', postRouter);
+app.use('/comments', commentsRouter);
+
 /* app.post('/profile-upload-single', upload.single('profile-file'), function (req, res, next) {
 
   // req.file is the `profile-file` file

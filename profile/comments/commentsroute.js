@@ -1,24 +1,24 @@
 const router=require('express').Router();
- const postService= require('../posts/post.service')();
+ const commentService= require('../comments/comments.service')();
  var multer  = require('multer');
- const Post=require ('../posts/Post');
+ const Comments=require ('../comments/Comments');
 
  router.post('/',async function(req, res, next){
   let {...post} = req.body
-    let response = await postService.addPost(post);
+    let response = await commentService.addComment(post);
     res.json(response);
 })
 
 
  router.get('/',async function(req,res,next){
-    let result=await postService.getAllPosts();
+    let result=await commentService.getAllComments();
     res.json(result);
  })
 
  router.post('/addUser/:id',async function(req,res){
    let id = req.params.id;
 
-    let result = await postService.addUserPost(id,req.body);
+    let result = await commentService.addUserComment(id,req.body);
     res.json(result);
  })
 
@@ -26,7 +26,7 @@ const router=require('express').Router();
  router.get('/:id', async function(req,res)
  {
    let id=req.params.id;
-   let response = await postService.getOnePost(id);
+   let response = await commentService.getOneComment(id);
    res.json(response);
 
  })
@@ -34,8 +34,8 @@ const router=require('express').Router();
  router.put('/:id', async function(req,res)
  {
   let id = req.params.id;
-  let {...post} = req.body
-  let response = await postService.updatePost(id,post);
+  let {...comment} = req.body
+  let response = await commentService.updateComment(id,comment);
    res.json(response);
 
 
@@ -43,7 +43,7 @@ const router=require('express').Router();
  router.delete('/:id', async function(req,res)
  {
    let id=req.params.id;
-   let response = await postService.DeletePost(id);
+   let response = await commentService.DeleteComment(id);
    res.json(response);
 
  })

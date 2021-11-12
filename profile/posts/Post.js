@@ -1,3 +1,4 @@
+const { number } = require('joi');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -27,19 +28,11 @@ const postSchema = new Schema({
         type: Boolean,
         default: true
     },
-    comments: [{
-        commentBody: {
-            type: String
-        },
-        commentUser: {
-            type: Schema.Types.ObjectId,
-            ref: 'user'
-        },
-        commentDate: {
-            type: Date,
-            default: Date.now
-        }
-    }]
+    likes: {
+      type: Number,
+      default: 0
+  },
+
 });
 
 module.exports = mongoose.model('post', postSchema);

@@ -57,6 +57,7 @@ module.exports = {
     },
     roles: {
         admin: "ADMIN",
-        user: "USER"
+        user: "USER",
+        place:"PLACE"
     }
 }
