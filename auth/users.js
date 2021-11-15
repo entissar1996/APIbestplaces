@@ -94,8 +94,9 @@ router.get('/user/:id', async function (req, res,next) {
 // PUT /update/:id
 router.put('/update/:id', helpers.validateUser, async function (req, res,next) {
   if (
-    !req.body.hasOwnProperty('nom') &&
-    !req.body.hasOwnProperty('telephone') &&
+    !req.body.hasOwnProperty('fullname') &&
+    !req.body.hasOwnProperty('email') &&
+    !req.body.hasOwnProperty('phone') &&
     !req.body.hasOwnProperty('adresse') &&
     !req.body.hasOwnProperty('ville')) {
     res.status(422).json({
