@@ -7,7 +7,6 @@ const DB_URI = process.env.MONG_DB_CONNECTION_STRING || 'mongodb://localhost:270
 
 function connect() {
   return new Promise((resolve, reject) => {
-  console.log(process.env.MONG_DB_CONNECTION_STRING)
     if (process.env.NODE_ENV === 'test') {
       const Mockgoose = require('mockgoose').Mockgoose;
       const mockgoose = new Mockgoose(mongoose);

@@ -42,16 +42,18 @@ const UserSchema = new Schema({
     },
     role: {
         type: String,
-        required: true,
-        default: 'GUEST'
+        required: true
+       // default: 'GUEST'
     },
     avatar: {
         type: String,
-        required: true,
-        default: 'avatardefault.png'
+        default: 'default.png'
     },
-   
 
+    posts :[{
+      type: mongoose.Types.ObjectId,
+      ref: 'Post'
+  }],
 }, {
     timestamps: true
 });

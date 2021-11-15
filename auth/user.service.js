@@ -1,5 +1,6 @@
 const { getToken, comparePassword } = require("./auth.helpers");
 const ROLES = require("./user-validation").roles;
+const User = require('../auth/user-schema');
 
 const register = (User) => async (u) => {
   const user = new User(u);
@@ -58,7 +59,7 @@ const authenticate = (User) => async (email, password) => {
 
 const getAllUser = (User) => async () => {
   try {
-    let users = await User.find({}).populate("customer");
+    let users = await User.find();
     if (users) {
       return {
         status: "success",
@@ -77,7 +78,7 @@ const getAllUser = (User) => async () => {
     try {
         let users = await User.find();
         return message = { items: users, total: users.legth };
-        
+
 
     } catch (error) {
         return ({ message: "Get All users Fail", payload: error });

@@ -1,0 +1,256 @@
+warning: LF will be replaced by CRLF in package-lock.json.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in package.json.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in server.js.
+The file will have its original line endings in your working directory
+[1mdiff --git a/package-lock.json b/package-lock.json[m
+[1mindex c4f7c44..84de863 100644[m
+[1m--- a/package-lock.json[m
+[1m+++ b/package-lock.json[m
+[36m@@ -166,6 +166,11 @@[m
+         "picomatch": "^2.0.4"[m
+       }[m
+     },[m
+[32m+[m[32m    "append-field": {[m
+[32m+[m[32m      "version": "1.0.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/append-field/-/append-field-1.0.0.tgz",[m
+[32m+[m[32m      "integrity": "sha1-HjRA6RXwsSA9I3SOeO3XubW0PlY="[m
+[32m+[m[32m    },[m
+     "aproba": {[m
+       "version": "1.2.0",[m
+       "resolved": "https://registry.npmjs.org/aproba/-/aproba-1.2.0.tgz",[m
+[36m@@ -353,6 +358,43 @@[m
+       "resolved": "https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz",[m
+       "integrity": "sha1-+OcRMvf/5uAaXJaXpMbz5I1cyBk="[m
+     },[m
+[32m+[m[32m    "buffer-from": {[m
+[32m+[m[32m      "version": "1.1.2",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz",[m
+[32m+[m[32m      "integrity": "sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ=="[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "busboy": {[m
+[32m+[m[32m      "version": "0.2.14",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/busboy/-/busboy-0.2.14.tgz",[m
+[32m+[m[32m      "integrity": "sha1-bCpiLvz0fFe7vh4qnDetNseSVFM=",[m
+[32m+[m[32m      "requires": {[m
+[32m+[m[32m        "dicer": "0.2.5",[m
+[32m+[m[32m        "readable-stream": "1.1.x"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "isarray": {[m
+[32m+[m[32m          "version": "0.0.1",[m
+[32m+[m[32m          "resolved": "https://registry.npmjs.org/isarray/-/isarray-0.0.1.tgz",[m
+[32m+[m[32m          "integrity": "sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8="[m
+[32m+[m[32m        },[m
+[32m+[m[32m        "readable-stream": {[m
+[32m+[m[32m          "version": "1.1.14",[m
+[32m+[m[32m          "resolved": "https://registry.npmjs.org/readable-stream/-/readable-stream-1.1.14.tgz",[m
+[32m+[m[32m          "integrity": "sha1-fPTFTvZI44EwhMY23SB54WbAgdk=",[m
+[32m+[m[32m          "requires": {[m
+[32m+[m[32m            "core-util-is": "~1.0.0",[m
+[32m+[m[32m            "inherits": "~2.0.1",[m
+[32m+[m[32m            "isarray": "0.0.1",[m
+[32m+[m[32m            "string_decoder": "~0.10.x"[m
+[32m+[m[32m          }[m
+[32m+[m[32m        },[m
+[32m+[m[32m        "string_decoder": {[m
+[32m+[m[32m          "version": "0.10.31",[m
+[32m+[m[32m          "resolved": "https://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz",[m
+[32m+[m[32m          "integrity": "sha1-YuIDvEF2bGwoyfyEMB2rHFMQ+pQ="[m
+[32m+[m[32m        }[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+     "bytes": {[m
+       "version": "3.1.0",[m
+       "resolved": "https://registry.npmjs.org/bytes/-/bytes-3.1.0.tgz",[m
+[36m@@ -477,6 +519,17 @@[m
+       "resolved": "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz",[m
+       "integrity": "sha1-2Klr13/Wjfd5OnMDajug1UBdR3s="[m
+     },[m
+[32m+[m[32m    "concat-stream": {[m
+[32m+[m[32m      "version": "1.6.2",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/concat-stream/-/concat-stream-1.6.2.tgz",[m
+[32m+[m[32m      "integrity": "sha512-27HBghJxjiZtIk3Ycvn/4kbJk/1uZuJFfuPEns6LaEvpvG1f0hTea8lilrouyo9mVc2GWdcEZ8OLoGmSADlrCw==",[m
+[32m+[m[32m      "requires": {[m
+[32m+[m[32m        "buffer-from": "^1.0.0",[m
+[32m+[m[32m        "inherits": "^2.0.3",[m
+[32m+[m[32m        "readable-stream": "^2.2.2",[m
+[32m+[m[32m        "typedarray": "^0.0.6"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+     "configstore": {[m
+       "version": "5.0.1",[m
+       "resolved": "https://registry.npmjs.org/configstore/-/configstore-5.0.1.tgz",[m
+[36m@@ -613,6 +666,38 @@[m
+       "resolved": "https://registry.npmjs.org/detect-libc/-/detect-libc-1.0.3.tgz",[m
+       "integrity": "sha1-+hN8S9aY7fVc1c0CrFWfkaTEups="[m
+     },[m
+[32m+[m[32m    "dicer": {[m
+[32m+[m[32m      "version": "0.2.5",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/dicer/-/dicer-0.2.5.tgz",[m
+[32m+[m[32m      "integrity": "sha1-WZbAhrszIYyBLAkL3cCc0S+stw8=",[m
+[32m+[m[32m      "requires": {[m
+[32m+[m[32m        "readable-stream": "1.1.x",[m
+[32m+[m[32m        "streamsearch": "0.1.2"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "isarray": {[m
+[32m+[m[32m          "version": "0.0.1",[m
+[32m+[m[32m          "resolved": "https://registry.npmjs.org/isarray/-/isarray-0.0.1.tgz",[m
+[32m+[m[32m          "integrity": "sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8="[m
+[32m+[m[32m        },[m
+[32m+[m[32m        "readable-stream": {[m
+[32m+[m[32m          "version": "1.1.14",[m
+[32m+[m[32m          "resolved": "https://registry.npmjs.org/readable-stream/-/readable-stream-1.1.14.tgz",[m
+[32m+[m[32m          "integrity": "sha1-fPTFTvZI44EwhMY23SB54WbAgdk=",[m
+[32m+[m[32m          "requires": {[m
+[32m+[m[32m            "core-util-is": "~1.0.0",[m
+[32m+[m[32m            "inherits": "~2.0.1",[m
+[32m+[m[32m            "isarray": "0.0.1",[m
+[32m+[m[32m            "string_decoder": "~0.10.x"[m
+[32m+[m[32m          }[m
+[32m+[m[32m        },[m
+[32m+[m[32m        "string_decoder": {[m
+[32m+[m[32m          "version": "0.10.31",[m
+[32m+[m[32m          "resolved": "https://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz",[m
+[32m+[m[32m          "integrity": "sha1-YuIDvEF2bGwoyfyEMB2rHFMQ+pQ="[m
+[32m+[m[32m        }[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+     "dot-prop": {[m
+       "version": "5.3.0",[m
+       "resolved": "https://registry.npmjs.org/dot-prop/-/dot-prop-5.3.0.tgz",[m
+[36m@@ -1408,6 +1493,31 @@[m
+       "resolved": "https://registry.npmjs.org/ms/-/ms-2.0.0.tgz",[m
+       "integrity": "sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g="[m
+     },[m
+[32m+[m[32m    "multer": {[m
+[32m+[m[32m      "version": "1.4.3",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/multer/-/multer-1.4.3.tgz",[m
+[32m+[m[32m      "integrity": "sha512-np0YLKncuZoTzufbkM6wEKp68EhWJXcU6fq6QqrSwkckd2LlMgd1UqhUJLj6NS/5sZ8dE8LYDWslsltJznnXlg==",[m
+[32m+[m[32m      "requires": {[m
+[32m+[m[32m        "append-field": "^1.0.0",[m
+[32m+[m[32m        "busboy": "^0.2.11",[m
+[32m+[m[32m        "concat-stream": "^1.5.2",[m
+[32m+[m[32m        "mkdirp": "^0.5.4",[m
+[32m+[m[32m        "object-assign": "^4.1.1",[m
+[32m+[m[32m        "on-finished": "^2.3.0",[m
+[32m+[m[32m        "type-is": "^1.6.4",[m
+[32m+[m[32m        "xtend": "^4.0.0"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "mkdirp": {[m
+[32m+[m[32m          "version": "0.5.5",[m
+[32m+[m[32m          "resolved": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.5.tgz",[m
+[32m+[m[32m          "integrity": "sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==",[m
+[32m+[m[32m          "requires": {[m
+[32m+[m[32m            "minimist": "^1.2.5"[m
+[32m+[m[32m          }[m
+[32m+[m[32m        }[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+     "negotiator": {[m
+       "version": "0.6.2",[m
+       "resolved": "https://registry.npmjs.org/negotiator/-/negotiator-0.6.2.tgz",[m
+[36m@@ -1852,6 +1962,11 @@[m
+       "resolved": "https://registry.npmjs.org/statuses/-/statuses-1.5.0.tgz",[m
+       "integrity": "sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow="[m
+     },[m
+[32m+[m[32m    "streamsearch": {[m
+[32m+[m[32m      "version": "0.1.2",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/streamsearch/-/streamsearch-0.1.2.tgz",[m
+[32m+[m[32m      "integrity": "sha1-gIudDlb8Jz2Am6VzOOkpkZoanxo="[m
+[32m+[m[32m    },[m
+     "string-width": {[m
+       "version": "1.0.2",[m
+       "resolved": "https://registry.npmjs.org/string-width/-/string-width-1.0.2.tgz",[m
+[36m@@ -1967,6 +2082,11 @@[m
+         "mime-types": "~2.1.24"[m
+       }[m
+     },[m
+[32m+[m[32m    "typedarray": {[m
+[32m+[m[32m      "version": "0.0.6",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz",[m
+[32m+[m[32m      "integrity": "sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c="[m
+[32m+[m[32m    },[m
+     "typedarray-to-buffer": {[m
+       "version": "3.1.5",[m
+       "resolved": "https://registry.npmjs.org/typedarray-to-buffer/-/typedarray-to-buffer-3.1.5.tgz",[m
+[36m@@ -2131,6 +2251,11 @@[m
+       "resolved": "https://registry.npmjs.org/xdg-basedir/-/xdg-basedir-4.0.0.tgz",[m
+       "integrity": "sha512-PSNhEJDejZYV7h50BohL09Er9VaIefr2LMAf3OEmpCkjOi34eYyQYAXUTjEQtZJTKcF0E2UKTh+osDLsgNim9Q=="[m
+     },[m
+[32m+[m[32m    "xtend": {[m
+[32m+[m[32m      "version": "4.0.2",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/xtend/-/xtend-4.0.2.tgz",[m
+[32m+[m[32m      "integrity": "sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ=="[m
+[32m+[m[32m    },[m
+     "yallist": {[m
+       "version": "4.0.0",[m
+       "resolved": "https://registry.npmjs.org/yallist/-/yallist-4.0.0.tgz",[m
+[1mdiff --git a/package.json b/package.json[m
+[1mindex 1963e67..fa70a80 100644[m
+[1m--- a/package.json[m
+[1m+++ b/package.json[m
+[36m@@ -21,6 +21,7 @@[m
+     "mongoose": "^5.13.7",[m
+     "mongoose-beautiful-unique-validation": "^7.1.1",[m
+     "morgan": "^1.10.0",[m
+[32m+[m[32m    "multer": "^1.4.3",[m
+     "nodemon": "^2.0.12",[m
+     "passport": "^0.4.1",[m
+     "passport-jwt": "^4.0.0"[m
+[1mdiff --git a/server.js b/server.js[m
+[1mindex 99b605b..a4a9770 100644[m
+[1m--- a/server.js[m
+[1m+++ b/server.js[m
+[36m@@ -4,6 +4,7 @@[m [mconst express = require('express');[m
+ const path = require('path');[m
+ const logger = require('morgan');[m
+ const cors = require('cors');[m
+[32m+[m[32mconst multer=require('multer')[m
+ [m
+ [m
+ const usersRouter = require('./auth/users');[m
+[36m@@ -43,5 +44,39 @@[m [mapp.use(function(err, req, res, next) {[m
+   res.status(err.status || 500);[m
+   res.json({message:'500 Server error :('});[m
+ });[m
+[31m-[m
+[32m+[m[32m//images upload[m
+[32m+[m[32mapp.use('/uploads', express.static(__dirname +'/uploads'));[m
+[32m+[m[32m var storage = multer.diskStorage({[m
+[32m+[m[32m    destination: function (req, file, cb) {[m
+[32m+[m[32m      cb(null, 'uploads')[m
+[32m+[m[32m    },[m
+[32m+[m[32m    filename: function (req, file, cb) {[m
+[32m+[m[32m      cb(null, new Date().toISOString()+file.originalname)[m
+[32m+[m[32m    }[m
+[32m+[m[32m  })[m
+[32m+[m
+[32m+[m[32m  var upload = multer({ storage: storage })[m
+[32m+[m[32m  app.post('/upload', upload.single('myFile'), async(req, res, next) => {[m
+[32m+[m[32m    const file = req.file[m
+[32m+[m[32m    if (!file) {[m
+[32m+[m[32m      const error = new Error('Please upload a file')[m
+[32m+[m[32m      error.httpStatusCode = 400[m
+[32m+[m[32m      return next("hey error")[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m
+[32m+[m[32m      const imagepost= new model({[m
+[32m+[m[32m        image: file.path[m
+[32m+[m[32m      })[m
+[32m+[m[32m      const savedimage= await imagepost.save()[m
+[32m+[m[32m      res.json(savedimage)[m
+[32m+[m
+[32m+[m[32m  })[m
+[32m+[m
+[32m+[m[32m  app.get('/image',async(req, res)=>{[m
+[32m+[m[32m   const image = await model.find()[m
+[32m+[m[32m   res.json(image)[m
+[32m+[m
+[32m+[m[32m  })[m
+[32m+[m[32m  app.use('/uploads', express.static(__dirname +'/uploads'));[m
+ module.exports = app;[m
