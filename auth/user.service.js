@@ -33,6 +33,7 @@ const authenticate = (User) => async (email, password) => {
 
   try {
     const user = await User.findOne({  email: email });
+    if(user){
     if (comparePassword(password, user.password)) {
       const token = getToken(user);
       return { status: "success",  message: "user authenticated succssfully!!!",
@@ -44,7 +45,13 @@ const authenticate = (User) => async (email, password) => {
     } else {
       return {
         status: "error",
-        message: "Invalid email or password!!!",
+        message: "Invalid password!!!",
+        payload: null,
+      };
+    }}else{
+      return {
+        status: "error",
+        message: "Invalid email !!",
         payload: null,
       };
     }

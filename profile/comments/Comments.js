@@ -9,13 +9,13 @@ const CommentsSchema = new Schema({
     },
     commentUser: {
         type: Schema.Types.ObjectId,
-        ref: 'user'
+        ref: 'User'
     },
     commentDate: {
         type: Date,
         default: Date.now
     },
-    idpost:{
+    idpost: {
       type: Schema.Types.ObjectId,
       ref: 'Post'
   }

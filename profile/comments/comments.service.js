@@ -30,8 +30,8 @@ async function addComment(comment) {
 async function addcommentToPost(comment)
 {
     await Post.updateMany(
-        { '_id':comment.idpost },
-        { $push: { comments: comment._id } }
+        {'_id':comment.idpost },
+        { $push: { Comments: comment._id } }
         );
 }
 

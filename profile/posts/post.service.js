@@ -1,5 +1,6 @@
 const Post= require('../posts/Post');
 const User= require('../../auth/user-schema');
+const Comments= require('../../profile/comments/Comments');
 
 async function addPost(post) {
 
@@ -7,6 +8,8 @@ async function addPost(post) {
         let NewPost = await Post.create(post);
 
         await addUserToPost(NewPost);
+        await addCommentToPost(NewPost);
+
 
         return ({
                 status: "success",
@@ -32,11 +35,18 @@ async function addUserToPost(post)
         { $push: { posts: post._id } }
         );
 }
+async function addCommentToPost(post)
+{
+    await Comments.updateMany(
+        { '_id':post.Comments },
+        { $push: { posts: post._id } }
+        );
+}
 
 
 async function getAllPosts() {
     try {
-        let listePosts = await Post.find({status: 'public'});//.populate('user').populate('comments.commentUser');
+        let listePosts = await Post.find({status: 'public'});//.populate('user').populate('Comments')
 
 
         return ({
