@@ -1,11 +1,8 @@
-const { number } = require('joi');
+const { number, string } = require('joi');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const postSchema = new Schema({
-    title: {
-        type: String
-    },
     body: {
         type: String
     },
@@ -13,21 +10,15 @@ const postSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    img: {
-      type: String
-    },
-    status: {
-        type: String,
-        default: 'public'
-    },
+    img: [{
+      type:String
+    }
+    ],
     date: {
         type: Date,
         default: Date.now
     },
-    allowComments: {
-        type: Boolean,
-        default: true
-    },
+
     likes: {
       type: Number,
       default: 0
