@@ -2,6 +2,7 @@ const router=require('express').Router();
  const postService= require('../posts/post.service')();
  var multer  = require('multer');
  const Post=require ('../posts/Post');
+ const User=require ('../../auth/user-schema');
  var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'uploads')
@@ -67,6 +68,7 @@ var upload = multer({ storage: storage });
 
 
  })
+
  router.delete('/:id', async function(req,res)
  {
    let id=req.params.id;

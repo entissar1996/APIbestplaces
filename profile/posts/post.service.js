@@ -112,18 +112,12 @@ async function updatePost(id,post) {
 
 }
 
-
-
-
-
-
 async function DeletePost(id) {
 
     try {
         let oldPost = await Post.findById(id);
         console.log(oldPost )
         let deletedPost = await Post.deleteOne({_id:id});
-        //await User.updateMany({ '_id': deletedPost.categories }, { $pull: { posts: deletedPost._id } });
         await DelateUserToPost(oldPost);
         return ({
             status: "success",
@@ -148,7 +142,6 @@ async function DelateUserToPost(post)
         );
 }
 
-//async function uploadPhoto()
 module.exports =() => {
     return (
         {
