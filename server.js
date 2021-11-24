@@ -23,7 +23,7 @@ app.use(express.urlencoded({
 
 // api endpoint
 app.use('/users', usersRouter);
-/*app.use('/uploadsavatar', avatarRouter);*/
+app.use('/uploadsavatar',express.static(path.join(__dirname, 'uploads')), avatarRouter);
 
 // images upload
 /*
@@ -37,8 +37,8 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage: storage });
 app.use(express.static(__dirname + '/public'));
-app.use('/uploads', express.static('uploads'));*/
-app.use('/uploadsavatar1', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static('uploads'));
+app.use('/uploadsavatar1', express.static(path.join(__dirname, 'uploads')))*/
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/posts', postRouter);
 app.use('/comments', commentsRouter);
