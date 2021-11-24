@@ -23,7 +23,7 @@ app.use(express.urlencoded({
 
 // api endpoint
 app.use('/users', usersRouter);
-app.use('/uploadsavatar', avatarRouter);
+/*app.use('/uploadsavatar', avatarRouter);*/
 
 // images upload
 /*
