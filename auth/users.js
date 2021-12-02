@@ -17,7 +17,6 @@ var storage = multer.diskStorage({
   }
 });
 var upload = multer({ storage: storage });
-
 router.post('/register',upload.single('avatar'), [check('email').isEmail()], async function (req, res, next) {
   console.log(req.file.path);
   const errors = validationResult(req);
@@ -41,13 +40,11 @@ router.post('/register',upload.single('avatar'), [check('email').isEmail()], asy
         next(error)
         console.log(error)
       }
-
     }
   }
-
 );
 */
-router.post('/register', [check('email').isEmail()], async function (req,res, next) {
+router.post(' ', [check('email').isEmail()], async function (req,res, next) {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     res.status(422).json({
