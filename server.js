@@ -10,7 +10,7 @@ const usersRouter = require('./auth/users');
 const avatarRouter =require('./auth/uploadsavatar');
 const postRouter = require('./profile/posts/postroute');
 const commentsRouter = require('./profile/comments/commentsroute');
-
+const markersRouter = require('./markers/marker.route');
 
 // setting up express app
 const app = express();
@@ -23,6 +23,7 @@ app.use(express.urlencoded({
 
 // api endpoint
 app.use('/users', usersRouter);
+app.use('/markers', markersRouter);
 app.use('/uploadsavatar', avatarRouter);
 
 // images upload
