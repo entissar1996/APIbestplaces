@@ -49,9 +49,9 @@ async function updatePicture(id, path) {
 router.post('/avatar/:id', upload, async function(req, res, next) {
    upload(req, res,async function(err) {
         if (err) {
-            res.json({ error_code: 1, err_desc: err });
+            res.json({ statuts: "failed", message: err });
         }
-        res.json({ error_code: 0, err_desc: 'Picture successfully uploaded' });
+        res.json({ statuts: 'success', message: 'Picture successfully uploaded' });
     });
 });
 

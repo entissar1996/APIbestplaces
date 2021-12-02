@@ -30,8 +30,8 @@ async function addComment(comment) {
 async function addcommentToPost(comment)
 {
     await Post.updateMany(
-        { '_id':comment.idpost },
-        { $push: { comments: comment._id } }
+        {'_id':comment.idpost },
+        { $push: { Comments: comment._id } }
         );
 }
 
@@ -82,11 +82,9 @@ async function updateComments(id,Comments) {
     try {
         let oldComments = await Comments.findByIdAndUpdate(id, Comments);
         let updatedComments = await Comments.findById(id);
-        //update Comments to catégorie
         await DelateUserToComments(oldComments);
         await addUserToComments(updatedComments);
 
-       // await User.updateMany({ '_id': updatedComments.categories }, { $addToSet: { Commentss: updatedComments._id } });
 
         return ({
             status: "success",
@@ -116,7 +114,7 @@ async function DeleteComments(id) {
         console.log(oldComments )
         let deletedComments = await Comments.deleteOne({_id:id});
         //await User.updateMany({ '_id': deletedComments.categories }, { $pull: { Commentss: deletedComments._id } });
-        await DelateUserToComments(oldComments);
+        await DelatePostToComments(oldComments);
         return ({
             status: "success",
             message: `User with _id=${id} has deleted`,
@@ -131,11 +129,11 @@ async function DeleteComments(id) {
     }
 
 }
-async function DelateUserToComments(Comments)
+async function DelatePostToComments(Comments)
 {
 
     await User.updateMany(
-        { '_id':Comments.user },
+        { '_id':Comments.idpost },
         { $pull : { Comments: Comments._id } }
         );
 }
