@@ -58,14 +58,8 @@ const authenticate = (User) => async (email, password) => {
         payload: null,
       };
     }
-  }else{
-    return {
-      status: "error",
-      message: "Invalid email!!!",
-      payload: null,
-    };
   }
-  } catch (error) {
+   catch (error) {
     return {
       status: "error",
       message: "user can't authenticate",
