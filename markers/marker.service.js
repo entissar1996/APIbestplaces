@@ -89,7 +89,9 @@ async function getOneMarker(id){
 async function DeleteMarker(id) {
   
     try {
+        let oldMarker = await Post.findById(id);
         let deletedMarker = await Marker.deleteOne({_id:id});
+        DelateMarkerToUser(oldMarker);
         return ({ 
             status: "success",
             message: `Marker with _id=${id} has deleted`,
