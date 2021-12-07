@@ -25,7 +25,6 @@ app.use(express.urlencoded({
 app.use('/users', usersRouter);
 app.use('/markers', markersRouter);
 app.use('/uploadsavatar', avatarRouter);
-app.use('/uploadsavatar',express.static(path.join(__dirname, 'uploads')), avatarRouter);
 
 // images upload
 /*
