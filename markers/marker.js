@@ -13,6 +13,10 @@ const markerSchema = new Schema({
         type: Number, 
         required: [true, 'longitude est obligatoire!!'] 
     },
-   
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'user'
+    },
+
 });
 module.exports = new mongoose.model('Marker', markerSchema);

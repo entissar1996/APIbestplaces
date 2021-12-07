@@ -44,7 +44,7 @@ router.post('/register',upload.single('avatar'), [check('email').isEmail()], asy
   }
 );
 */
-router.post(' ', [check('email').isEmail()], async function (req,res, next) {
+router.post('/register', [check('email').isEmail()], async function (req,res, next) {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     res.status(422).json({

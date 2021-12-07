@@ -2,6 +2,7 @@ const { getToken, comparePassword } = require("./auth.helpers");
 const ROLES = require("./user-validation").roles;
 const User = require('../auth/user-schema');
 
+
 const register = (User) => async (u) => {
   const user = new User(u);
   try {
@@ -21,6 +22,8 @@ const register = (User) => async (u) => {
     };
   }
 };
+
+
 
 const authenticate = (User) => async (email, password) => {
   if (!email && !password) {
