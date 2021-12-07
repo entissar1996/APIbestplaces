@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
-const beautifyUnique = require('mongoose-beautiful-unique-validation');
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
-
+const mongoose = require('mongoose')
+const beautifyUnique = require('mongoose-beautiful-unique-validation')
+const bcrypt = require('bcrypt')
+const saltRounds = 10
+const {ObjectId} = mongoose.Schema.Types
 
 
 //Define a schema
@@ -58,6 +58,8 @@ const UserSchema = new Schema({
       type: mongoose.Types.ObjectId,
       ref: 'Post'
   }],
+  followers:[{type:ObjectId,ref:"User"}],
+  following:[{type:ObjectId,ref:"User"}]
 }, {
     timestamps: true
 });

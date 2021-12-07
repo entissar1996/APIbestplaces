@@ -4,8 +4,8 @@ const router=require('express').Router();
  const Comments=require ('../comments/Comments');
 
  router.post('/',async function(req, res, next){
-  let {...post} = req.body
-    let response = await commentService.addComment(post);
+  let {...comment} = req.body
+    let response = await commentService.addComment(comment);
     res.json(response);
 })
 
