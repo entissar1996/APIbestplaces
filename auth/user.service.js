@@ -4,15 +4,12 @@ const User = require('../auth/user-schema');
 
 
 const register = (User) => async (u) => {
-
- 
-
   const user = new User(u);
   try {
     const IsEmail = await User.findOne({  email:u.email });
     if(!IsEmail){
     const save = await user.save();
-    if (save) { 
+    if (save) {
       return {
         status: "success",
         message: "user registred succssfully!!!",
@@ -52,8 +49,8 @@ const authenticate = (User) => async (email, password) => {
     if(user){
     if (comparePassword(password, user.password)) {
       const token = getToken(user);
-      return { 
-        status: "success", 
+      return {
+        status: "success",
         message: "user authenticated succssfully!!!",
         payload: {
           user: user.toJSON(),
@@ -66,15 +63,14 @@ const authenticate = (User) => async (email, password) => {
         message: "Invalid password!!!",
       };
     }
-
   }else{
     return {
       status: "failed",
       message: "Invalid email!!!",
     };
+ }
 
-  }
-   catch (error) {
+}catch (error) {
     return {
       status: "failed",
       message: "user can't authenticate",
