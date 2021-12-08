@@ -68,15 +68,13 @@ const authenticate = (User) => async (email, password) => {
       status: "failed",
       message: "Invalid email!!!",
     };
-<<<<<<< HEAD
+
  }
 
-}catch (error) {
-=======
-  } 
 
-  }catch (error) {
->>>>>>> 181ca959cb494bf8a4f4333dada9a58bb8bd9b56
+
+
+}catch (error) {
     return {
       status: "failed",
       message: "user can't authenticate",
