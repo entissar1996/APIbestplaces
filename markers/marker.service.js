@@ -38,7 +38,7 @@ async function getAllMarkers() {
 
     } catch (error) {
         return ({
-            status: "error",
+            status: "failed",
             message: "Get All MarkersFail", 
             payload: error 
         });
@@ -57,7 +57,7 @@ async function getOneMarker(id){
  
      } catch (error) {
          return {
-             status: "error",
+             status: "failed",
              message: `Error to get marker with _id=${id}`,
              payload: error,
            };
@@ -79,7 +79,7 @@ async function getOneMarker(id){
         });
     } catch (error) {
         return ({ 
-            status: "error",
+            status: "failed",
              message: `Error to delete marker with _id=${id}`, 
             payload: error 
         });
@@ -100,8 +100,9 @@ async function DeleteMarker(id) {
 
     } catch (error) {
         return ({ 
+            status: "failed",
             message:  `Error to delete Marker with _id=${id}`,
-             payload: error });
+            payload: error });
     }
 
 }
