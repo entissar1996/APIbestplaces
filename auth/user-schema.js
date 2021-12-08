@@ -40,6 +40,10 @@ const UserSchema = new Schema({
     adresse: {
         type: String
     },
+    marker: {
+        type: Schema.Types.ObjectId,
+        ref: 'Marker'
+    },
     role: {
         type: String,
         required: true

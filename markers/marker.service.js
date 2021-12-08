@@ -1,8 +1,9 @@
 const Marker = require('../markers/marker');
-
+const User= require('../auth/user-schema');
 async function addMarker(marker) {
     try {
         let NewMarker = await Marker.create(marker);
+        addMarkerToUser(NewMarker);
         return ({    
             status: "success",
             message: "Marker added succssfullty", 
@@ -18,6 +19,13 @@ async function addMarker(marker) {
     }
 
 }
+async function addMarkerToUser(Marker)
+{
+    await User.updateMany(
+        { '_id':Marker.user },
+        { $push: { marker  : Marker._id } }
+        );
+}
 
 async function getAllMarkers() {
     try {
@@ -30,7 +38,7 @@ async function getAllMarkers() {
 
     } catch (error) {
         return ({
-            status: "error",
+            status: "failed",
             message: "Get All MarkersFail", 
             payload: error 
         });
@@ -49,7 +57,7 @@ async function getOneMarker(id){
  
      } catch (error) {
          return {
-             status: "error",
+             status: "failed",
              message: `Error to get marker with _id=${id}`,
              payload: error,
            };
@@ -59,7 +67,11 @@ async function getOneMarker(id){
  async function updateMarker(id,marker) {
   
     try {
-        let updatedMarker = await Marker.findByIdAndUpdate(id, marker);
+        let oldmarker = await Marker.findByIdAndUpdate(id, marker);
+        let updatedMarker = await Marker.findById(id);
+        
+        await DelateMarkerToUser(oldmarker);
+        await addMarkerToUser(updatedMarker);
         return ({
             status: "success",
             message: "marker updated successfully",
@@ -67,7 +79,7 @@ async function getOneMarker(id){
         });
     } catch (error) {
         return ({ 
-            status: "error",
+            status: "failed",
              message: `Error to delete marker with _id=${id}`, 
             payload: error 
         });
@@ -77,7 +89,9 @@ async function getOneMarker(id){
 async function DeleteMarker(id) {
   
     try {
+        let oldMarker = await Post.findById(id);
         let deletedMarker = await Marker.deleteOne({_id:id});
+        DelateMarkerToUser(oldMarker);
         return ({ 
             status: "success",
             message: `Marker with _id=${id} has deleted`,
@@ -86,10 +100,20 @@ async function DeleteMarker(id) {
 
     } catch (error) {
         return ({ 
+            status: "failed",
             message:  `Error to delete Marker with _id=${id}`,
-             payload: error });
+            payload: error });
     }
 
+}
+
+async function DelateMarkerToUser(Marker)
+{
+
+    await User.updateMany(
+        { '_id':Marker.user },
+        { $pull : { marker: Marker._id } }
+        );
 }
 module.exports =() => {
     return (
