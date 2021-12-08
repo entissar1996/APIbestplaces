@@ -72,9 +72,9 @@ const authenticate = (User) => async (email, password) => {
       status: "failed",
       message: "Invalid email!!!",
     };
+  } 
 
-  }
-   catch (error) {
+  }catch (error) {
     return {
       status: "failed",
       message: "user can't authenticate",
